@@ -16,18 +16,28 @@ let persons = [
 // NOTE: You can only use reduce method to solve this exercise:
 
 // Find the average grade
+persons.reduce((acc, elm)=> (acc += elm.grade), 0) / persons.length; // 11.083333333333334
 
-// Find the average grade of male
+//Find the average grade of male
+let malePersons = persons.filter((elm) => elm.sex === "M");
+malePersons.reduce((acc, elm)=> (acc += elm.grade), 0) / malePersons.length; // 8.666666666666666
 
 // Find the average grade of female
+let femalePersons = persons.filter((elm) => elm.sex === "F");
+femalePersons.reduce((acc, elm)=> (acc += elm.grade), 0) / femalePersons.length; // 13.5
 
 // Find the highest grade
+console.log(persons.reduce((acc, elm) => (acc.grade > elm.grade ? acc : elm)).grade); //18
 
 // Find the highest grade in male
+console.log(malePersons.reduce((acc, elm) => (acc.grade > elm.grade ? acc : elm)).grade); //17
 
 // Find the highest grade in female
+console.log(femalePersons.reduce((acc, elm) => (acc.grade > elm.grade ? acc : elm)).grade)
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
+let filterPersons = persons.filter((elm) => elm.name.startsWith('J') || elm.name.startsWith('P'));
+console.log(filterPersons.reduce((acc, elm) => (acc.grade > elm.grade ? acc : elm)).grade)
 
 const fruitBasket = [
   'banana',
@@ -51,6 +61,14 @@ that fruit has appeared in the array.
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+console.log(fruitBasket.reduce((acc, elm) => {
+  if(acc[elm]){
+    acc[elm] += 1;
+  } else{
+      acc[elm] =1
+  }
+  return acc;
+}, {}));
 
 /* 
 
@@ -62,6 +80,11 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
+
+
+
+
+
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -70,6 +93,7 @@ const data = [
 ];
 
 // Using reduce flat data array
+data.reduce((acc, elm) => acc.concat(acc), [], 0);
 
 const dataTwo = [
   [1, 2, 3],
@@ -79,6 +103,7 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
+dataTwo.reduce((acc, elm) => acc.concat(acc), [], 0)
 
 /*
 
@@ -92,6 +117,28 @@ Create these functions which accepts a number value and returns a number value:
 
 
 */
+function increment(n){
+  return n + 1;
+}
+
+function double(n){
+  return n * 2;
+}
+
+function decrement(n){
+  return n-1;
+}
+
+function triple(n){
+  return n * 3;
+}
+
+function half(n){
+  return Math.round(n / 2);
+}
+
+
+
 
 let pipeline = [
   increment,
