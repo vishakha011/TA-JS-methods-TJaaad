@@ -19,8 +19,7 @@ function peopleByHouses() {
 
 
 function everyone() {
-
-  
+   
 }
 
 function nameWithS() {
