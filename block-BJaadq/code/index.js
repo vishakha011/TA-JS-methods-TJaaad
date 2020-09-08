@@ -2,14 +2,25 @@
 
 function countAllPeople() {
   // your code goes here
+  let count = 0;
+  got.houses.forEach((elm) =>{
+    count += elm.people.length
+  })
+  return count;
 }
 
 function peopleByHouses() {
-  // your code goes here
+  let peopleHouse ={};
+  got.houses.forEach((elm) =>{
+    peopleHouse[elm.name ]= elm.people.length
+  })
+  return peopleHouse;
 }
 
+
 function everyone() {
-  // your code goes here
+
+  
 }
 
 function nameWithS() {
@@ -29,7 +40,12 @@ function surnameWithA() {
 }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+	const peopleByHousesObj = {};
+	got.houses.forEach((elm) => {
+		peopleByHousesObj[elm.name] = [];
+		elm.people.forEach((element) => peopleByHousesObj[elm.name].push(element.name));
+	});
+	return peopleByHousesObj;
 }
 
 // Testing your result after writing your function
