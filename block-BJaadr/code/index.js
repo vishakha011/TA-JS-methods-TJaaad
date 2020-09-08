@@ -1,35 +1,43 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
 function countAllPeople() {
-  // your code goes here
+  return got.houses.reduce((acc, elm) => (acc += elm.people.length), 0)
 }
 
 function peopleByHouses() {
-  // your code goes here
+  return got.houses.reduce((acc, elm) => {
+    acc[elm.name] = elm.people.length;
+    return acc;
+  }, {})
 }
 
 function everyone() {
-  // your code goes here
+  return got.houses.reduce((acc, elm) => {
+    return acc.concat(elm.people.map((element) => element.name))
+  }, [])
 }
 
 function nameWithS() {
-  // your code goes here
+  return everyone().filter((elm) => elm.includes("S") || elm.includes("s"));
 }
 
 function nameWithA() {
-  // your code goes here
+  return everyone().filter((elm) => elm.includes("A") || elm.includes("a"));
 }
 
 function surnameWithS() {
-  // your code goes here
+  return everyone().filter((elm) => elm.split(" ")[1].startsWith("S"));
 }
 
 function surnameWithA() {
-  // your code goes here
+  return everyone().filter((elm) => elm.split(" ")[1].startsWith("A"));
 }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+  return got.houses.reduce((acc, elm) => {
+    acc[elm.name] = elm.people.map((element) => element.name);
+    return acc;
+  }, {})
 }
 
 // Testing your result after writing your function
