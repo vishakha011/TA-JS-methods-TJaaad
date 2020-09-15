@@ -3,6 +3,7 @@ var numbers = [1, 12, 4, 18, 9, 7, 11, 3, 101, 5, 6, 9];
 var strings = ['This', 'is', 'a', 'collection', 'of', 'words'];
 
 // - Find the index of `101` in numbers
+numbers.indexOf(101); // 8
 
 // - Find the last index of `9` in numbers
 
